@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -21,3 +19,45 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# IDEs
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Logs
+lerna-debug.log*
+
+# Package manager caches
+.npm
+.yarn
+
+# GitHub Actions
+.github/
+
+# Git Lab
+.gitlab/
+
+# Static assets
+/public/*.map
+
+# Server files
+/server/node_modules
