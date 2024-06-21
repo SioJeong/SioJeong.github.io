@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import fetchRecentPostsTitles from '../../utils/fetchRecentPostsTitles';
 import usePostContext from '../../\bcontext/PostContext';
+import DateFormatter from '../../components/Markdown/DateFormatter';
 
 export default function AllPosts() {
     const { totalPostsNumber } = usePostContext();
@@ -21,9 +22,10 @@ export default function AllPosts() {
         <div>
             <h1>All Posts</h1>
             <ul>
-                {posts.map(({ title, path }, index) => (
+                {posts.map(({ title, path, date }, index) => (
                     <li key={index}>
                         <Link to={`/post/${totalPostsNumber - index}`}>{title}</Link>
+                        <DateFormatter dateString={date} />
                     </li>
                 ))}
             </ul>

@@ -1,16 +1,20 @@
-import extractFirstH1 from './extractFirstH1';
+import matter from 'gray-matter';
 
 export default async function fetchRecentPostsTitles(paths) {
-    const titles = await Promise.all(
-        paths.map(async (path) => {
-            try {
-                const response = await fetch(path);
-                const markdown = await response.text();
-                const title = extractFirstH1(markdown);
-                return { title, path };
-            } catch (error) {}
-        })
-    );
+    const titles = [];
+
+    for (const path of paths) {
+        try {
+            const response = await fetch(path);
+            const markdown = await response.text();
+            const parsed = matter(markdown);
+
+            const { title, date } = parsed.data;
+            titles.push({ title, date, path });
+        } catch (error) {
+            console.error(`Error processing ${path}:`, error);
+        }
+    }
 
     return titles;
 }
