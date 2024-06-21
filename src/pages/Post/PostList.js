@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import fetchRecentPostsTitles from '../../utils/fetchRecentPostsTitles';
+import usePostContext from '../../\bcontext/PostContext';
 
 export default function AllPosts() {
+    const { totalPostsNumber } = usePostContext();
     const [posts, setPosts] = useState([]);
-    const totalPostsNumber = 10; // 게시물의 총 개수 설정 (필요에 따라 조정)
 
     useEffect(() => {
         // 모든 게시물 경로 생성
@@ -14,7 +15,7 @@ export default function AllPosts() {
         );
 
         fetchRecentPostsTitles(markdownPaths).then((titles) => setPosts(titles));
-    }, []);
+    }, [totalPostsNumber]);
 
     return (
         <div>
@@ -22,7 +23,7 @@ export default function AllPosts() {
             <ul>
                 {posts.map(({ title, path }, index) => (
                     <li key={index}>
-                        <Link to={`/post/${totalPostsNumber - index}`}>{title || '없음'}</Link>
+                        <Link to={`/post/${totalPostsNumber - index}`}>{title}</Link>
                     </li>
                 ))}
             </ul>
