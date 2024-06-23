@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import MarkdownRenderer from '../../components/Markdown/MarkdownRenderer';
+import matter from 'gray-matter';
 
 export default function PostDetail() {
     const { postId } = useParams();
@@ -9,7 +10,10 @@ export default function PostDetail() {
     useEffect(() => {
         fetch(`/Markdowns/Posts/${postId}.md`)
             .then((response) => response.text())
-            .then((text) => setMarkdown(text));
+            .then((text) => {
+                const { content: markdown } = matter(text);
+                setMarkdown(markdown);
+            });
     }, [postId]);
 
     return (
