@@ -22,7 +22,7 @@ export default function AllPosts() {
         <div>
             <h1>All Posts</h1>
             <ul>
-                {posts.map(({ title, path, date }, index) => (
+                {posts.map(({ title, date }, index) => (
                     <li key={index}>
                         <Link to={`/post/${totalPostsNumber - index}`}>{title}</Link>
                         <DateFormatter dateString={date} />

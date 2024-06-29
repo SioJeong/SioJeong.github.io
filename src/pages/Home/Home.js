@@ -4,7 +4,7 @@ import MarkdownRenderer from '../../components/Markdown/MarkdownRenderer';
 import fetchRecentPostsTitles from '../../utils/fetchRecentPostsTitles';
 import usePostContext from '../../\bcontext/PostContext';
 
-const recentPostsCount = 5;
+const RECENT_POSTS_STANDARD = 5;
 
 export default function Home() {
     const { totalPostsNumber } = usePostContext();
@@ -18,12 +18,12 @@ export default function Home() {
 
         const markdownPaths = [];
 
-        for (let i = 0; i < recentPostsCount; i++) {
+        for (let i = 0; i < RECENT_POSTS_STANDARD; i++) {
             markdownPaths.push(`./Markdowns/Posts/${totalPostsNumber - i}.md`);
         }
 
         fetchRecentPostsTitles(markdownPaths).then((titles) =>
-            setRecentPostsTitles(titles.slice(0, recentPostsCount))
+            setRecentPostsTitles(titles.slice(0, RECENT_POSTS_STANDARD))
         );
     }, [totalPostsNumber]);
 
