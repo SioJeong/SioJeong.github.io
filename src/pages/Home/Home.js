@@ -32,7 +32,7 @@ export default function Home() {
             <MarkdownRenderer markdown={markdown} />
             <h1>Recently Posts</h1>
             <ul>
-                {recentPostsTitles.map(({ title, path }, index) => (
+                {recentPostsTitles.map(({ title }, index) => (
                     <li key={index}>
                         <Link to={`/post/${totalPostsNumber - index}`}>{title || 'None'}</Link>
                     </li>

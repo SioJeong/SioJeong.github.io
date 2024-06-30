@@ -22,7 +22,17 @@ export default function PostDetail() {
     return (
         <div>
             <h1>{frontmatter.title}</h1>
-            <p>Tag: {frontmatter.tag}</p>
+            <p>
+                Tags:{' '}
+                {Array.isArray(frontmatter.tag)
+                    ? frontmatter.tag.map((tag, index) => (
+                          <span key={index}>
+                              {index > 0 ? ', ' : ''}
+                              {tag}
+                          </span>
+                      ))
+                    : frontmatter.tag}
+            </p>
             <DateFormatter dateString={frontmatter.date} />
             <MarkdownRenderer markdown={markdown} />
         </div>

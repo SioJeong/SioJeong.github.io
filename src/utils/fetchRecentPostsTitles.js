@@ -7,13 +7,11 @@ export default async function fetchRecentPostsTitles(paths) {
         try {
             const response = await fetch(path);
             const markdown = await response.text();
-            const parsed = matter(markdown);
+            const { data } = matter(markdown);
 
-            const { title, date } = parsed.data;
-            titles.push({ title, date, path });
-        } catch (error) {
-            console.error(`Error processing ${path}:`, error);
-        }
+            const { title, date } = data;
+            titles.push({ title, date });
+        } catch (error) {}
     }
 
     return titles;
