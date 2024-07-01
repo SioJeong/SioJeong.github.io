@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import { ReactComponent as Symbol } from '../../shared/symbol.svg';
 
 export default function Header() {
     return (
         <div>
             <div>
                 <Link to={'/'}>
-                    <img src="SioJeong.github.io/public/assets/symbol.svg" alt="symbol" />
+                    <Symbol width="15" height="15" />
                 </Link>
                 <Link to={'/post'}>Post</Link>
                 <Link to={'/about'}>About</Link>
