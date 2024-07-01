@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import fetchRecentPostsTitles from '../../utils/fetchRecentPostsTitles';
+import fetchRecentPostsTitles from '../../utils/FetchRecentPostsInfos';
 import usePostContext from '../../\bcontext/PostContext';
-import DateFormatter from '../../components/Markdown/DateFormatter';
+import DateFormatter from '../../components/markdown/DateFormatter';
 
 export default function AllPosts() {
     const { totalPostsNumber } = usePostContext();
@@ -12,7 +12,7 @@ export default function AllPosts() {
         // 모든 게시물 경로 생성
         const markdownPaths = Array.from(
             { length: totalPostsNumber },
-            (_, i) => `./Markdowns/Posts/${totalPostsNumber - i}.md`
+            (_, i) => `./assets/markdowns/posts/${totalPostsNumber - i}.md`
         );
 
         fetchRecentPostsTitles(markdownPaths).then((titles) => setPosts(titles));

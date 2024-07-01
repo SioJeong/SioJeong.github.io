@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import MarkdownRenderer from '../../components/Markdown/MarkdownRenderer';
-import fetchRecentPostsTitles from '../../utils/fetchRecentPostsTitles';
+import MarkdownRenderer from '../../components/markdown/MarkdownRenderer';
+import fetchRecentPostsTitles from '../../utils/FetchRecentPostsInfos';
 import usePostContext from '../../\bcontext/PostContext';
 
 const RECENT_POSTS_STANDARD = 5;
@@ -12,14 +12,14 @@ export default function Home() {
     const [recentPostsTitles, setRecentPostsTitles] = useState([]);
 
     useEffect(() => {
-        fetch(`/Markdowns/Home/intro.md`)
+        fetch(`/assets/markdowns/home/intro.md`)
             .then((response) => response.text())
             .then((text) => setMarkdown(text));
 
         const markdownPaths = [];
 
         for (let i = 0; i < RECENT_POSTS_STANDARD; i++) {
-            markdownPaths.push(`./Markdowns/Posts/${totalPostsNumber - i}.md`);
+            markdownPaths.push(`./assets/markdowns/posts/${totalPostsNumber - i}.md`);
         }
 
         fetchRecentPostsTitles(markdownPaths).then((titles) =>

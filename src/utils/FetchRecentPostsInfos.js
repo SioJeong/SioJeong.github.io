@@ -1,6 +1,6 @@
 import matter from 'gray-matter';
 
-export default async function fetchRecentPostsTitles(paths) {
+export default async function FetchRecentPostsInfos(paths) {
     const titles = [];
 
     for (const path of paths) {

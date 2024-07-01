@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 
-import Home from '../../pages/Home/Home';
-import PostList from '../../pages/Post/PostList';
-import About from '../../pages/About/About';
-import PostDetail from '../../pages/Post/PostDetail';
+import Home from '../../pages/home/Home';
+import PostList from '../../pages/post/PostList';
+import About from '../../pages/about/About';
+import PostDetail from '../../pages/post/PostDetail';
 
 export default function Main() {
     return (

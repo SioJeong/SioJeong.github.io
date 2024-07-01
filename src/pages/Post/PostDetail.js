@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import MarkdownRenderer from '../../components/Markdown/MarkdownRenderer';
-import DateFormatter from '../../components/Markdown/DateFormatter';
+import MarkdownRenderer from '../../components/markdown/MarkdownRenderer';
+import DateFormatter from '../../components/markdown/DateFormatter';
 import matter from 'gray-matter';
 
 export default function PostDetail() {
@@ -10,7 +10,7 @@ export default function PostDetail() {
     const [frontmatter, setFrontMatter] = useState({});
 
     useEffect(() => {
-        fetch(`/Markdowns/Posts/${postId}.md`)
+        fetch(`/assets/markdowns/posts/${postId}.md`)
             .then((response) => response.text())
             .then((text) => {
                 const { content, data: frontmatter } = matter(text);
