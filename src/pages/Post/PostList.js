@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import fetchRecentPostsTitles from '../../utils/FetchRecentPostsInfos';
 import usePostContext from '../../\bcontext/PostContext';
-import DateFormatter from '../../components/markdown/DateFormatter';
+import PostDate from '../../components/post-date';
 
-export default function AllPosts() {
+export default function PostList() {
     const { totalPostsNumber } = usePostContext();
     const [posts, setPosts] = useState([]);
 
@@ -25,7 +25,7 @@ export default function AllPosts() {
                 {posts.map(({ title, date }, index) => (
                     <li key={index}>
                         <Link to={`/post/${totalPostsNumber - index}`}>{title}</Link>
-                        <DateFormatter dateString={date} />
+                        <PostDate date={date} />
                     </li>
                 ))}
             </ul>

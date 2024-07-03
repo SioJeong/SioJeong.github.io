@@ -6,7 +6,7 @@ export default function Header() {
         <div>
             <div>
                 <Link to={'/'}>
-                    <Symbol width="15" height="15" />
+                    <Symbol width="15" height="15" stroke="#e0e3da" />
                 </Link>
                 <Link to={'/post'}>Post</Link>
                 <Link to={'/about'}>About</Link>

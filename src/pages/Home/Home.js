@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import MarkdownRenderer from '../../components/markdown/MarkdownRenderer';
+import MarkdownRenderer from '../../components/markdown-renderer';
 import fetchRecentPostsTitles from '../../utils/FetchRecentPostsInfos';
 import usePostContext from '../../\bcontext/PostContext';
 
@@ -30,7 +30,7 @@ export default function Home() {
     return (
         <div>
             <MarkdownRenderer markdown={markdown} />
-            <h1>Recently Posts</h1>
+            <h1>Recently Posted</h1>
             <ul>
                 {recentPostsTitles.map(({ title }, index) => (
                     <li key={index}>

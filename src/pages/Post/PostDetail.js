@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import MarkdownRenderer from '../../components/markdown/MarkdownRenderer';
-import DateFormatter from '../../components/markdown/DateFormatter';
+import MarkdownRenderer from '../../components/markdown-renderer';
+import PostDate from '../../components/post-date';
 import matter from 'gray-matter';
 
 export default function PostDetail() {
@@ -33,7 +33,7 @@ export default function PostDetail() {
                       ))
                     : frontmatter.tag}
             </p>
-            <DateFormatter dateString={frontmatter.date} />
+            <PostDate date={frontmatter.date} />
             <MarkdownRenderer markdown={markdown} />
         </div>
     );
