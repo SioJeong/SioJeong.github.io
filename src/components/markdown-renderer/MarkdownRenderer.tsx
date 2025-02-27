@@ -38,6 +38,7 @@ const MarkdownRenderer = ({ markdown }: MarkdownRendererProps) => {
                     li: (props) => <li className={styles.list} {...props} />,
                     details: (props) => <details className={styles.codeBlock} {...props} />,
                     summary: (props) => <summary className={styles.codeBlockTitle} {...props} />,
+                    a: (props) => <a {...props} target="_blank" />,
                     code({ className, children, ...props }) {
                         const match = /language-(\w+)/.exec(className || '');
                         return match ? (
